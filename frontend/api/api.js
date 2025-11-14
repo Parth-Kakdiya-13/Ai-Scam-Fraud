@@ -1,0 +1,1 @@
+export const api = "https://ai-scam-fraud-backend.onrender.com"

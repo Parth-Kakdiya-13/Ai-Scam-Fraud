@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '../components/Navbar'
 import Link from 'next/link'
+import { api } from '../api/api'
 
 export default function Signin() {
     const router = useRouter()
@@ -17,7 +18,7 @@ export default function Signin() {
         setError(null)
         setLoading(true)
         try {
-            const res = await fetch(`${API}/api/auth/login`, {
+            const res = await fetch(`${api}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),

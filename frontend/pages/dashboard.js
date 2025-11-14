@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Navbar from '../components/Navbar'
 import { withAuth } from '../components/withAuth'
 import { logout, authenticatedFetch } from '../lib/auth'
+import { api } from '../api/api'
 
 function Dashboard() {
     const router = useRouter()
@@ -25,7 +26,7 @@ function Dashboard() {
 
     async function fetchReportHistory() {
         try {
-            const res = await authenticatedFetch(`${API}/api/scan/history?limit=20`)
+            const res = await authenticatedFetch(`${api}/api/scan/history?limit=20`)
             if (!res.ok) throw new Error('Failed to fetch history')
             const data = await res.json()
 

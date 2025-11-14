@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { authenticatedFetch } from '../lib/auth'
+import { api } from '../api/api'
 
 export default function ScanForm({ onResult }) {
     const [input, setInput] = useState('')
@@ -24,7 +25,7 @@ export default function ScanForm({ onResult }) {
 
             // Use authenticatedFetch to include JWT token
             const response = await authenticatedFetch(
-                `${API}${endpoint}`,
+                `${api}${endpoint}`,
                 {
                     method: 'POST',
                     body: JSON.stringify({
